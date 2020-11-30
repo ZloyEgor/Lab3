@@ -14,7 +14,6 @@ public class SmallBird extends Bird{
      */
     public SmallBird(Teller teller) {
         super(teller);
-        teller.tell(updateMood(Mood.SERIOUS));
     }
 
     @Override

@@ -16,18 +16,36 @@ public abstract class Bird implements Creature{
     protected Mood mood;
     protected Incident incident;
     protected Teller teller;
+    protected String[] nameArray  = {"Scruffy", "Baldy", "Screech", "Skittles", "Samuel", "Dafny", "Kiwi", "Pepper"};
 
     /**
      * @brief By default, the name of the bird is chosen randomly from the proposed array of names
      * Birds are serious by default and have no incident.
      */
     public Bird(Teller teller){
-        String[] nameArray = {"Bubba", "Scruffy", "Baldy", "Screech", "Tweety", "Skittles", "Jojo", "Samuel", "Dafny", "Lulza", "Kiwi", "Pepper", "Harley"};
-        name = nameArray[(int) (Math.random() * 13)];
+        name = nameArray[(int) (Math.random() * nameArray.length)];
         this.teller = teller;
+        mood = Mood.SERIOUS;
         incident = Incident.NONE;
     }
 
+    /**
+     * @brief A method that represents the bird and its mood
+     * @param mood - bird mood
+     */
+    public void introduce(Mood mood){
+        teller.tell(updateMood(mood));
+    }
+
+    /**
+     * @brief The method sets a new name for the bird, which is different from the unwantedName
+     * @param unwantedName - name that should be changed
+     */
+    public void setDifferentName(String unwantedName){
+        do{
+            name = nameArray[(int) (Math.random() * nameArray.length)];
+        } while(name.matches(unwantedName));
+    }
 
     @Override
     public String updateMood(Mood mood) {

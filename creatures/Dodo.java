@@ -18,7 +18,6 @@ public class Dodo extends LargeBird {
     public Dodo(Teller teller) {
         super(teller);
         name = "Dodo";
-        teller.tell(updateMood(Mood.SERIOUS));
         incident = Incident.NONE;
         doesHaveTheThimble = true;
     }

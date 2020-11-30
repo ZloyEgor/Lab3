@@ -5,6 +5,7 @@ import creatures.Bird;
 import creatures.Dodo;
 import creatures.LargeBird;
 import creatures.SmallBird;
+import enums.Mood;
 import teller.Teller;
 import java.util.Arrays;
 
@@ -41,6 +42,15 @@ public class Feast implements Event{
             else if (i < 3) birds[i] = new LargeBird(teller);
             else birds[i] = new SmallBird(teller);
         }
+        if (birds[1].hashCode() == birds[2].hashCode()){
+            birds[1].setDifferentName(birds[2].getName());
+        }
+        if (birds[3].hashCode() == birds[4].hashCode()){
+            birds[3].setDifferentName(birds[4].getName());
+        }
+        for(Bird bird: birds){
+            bird.introduce(Mood.SERIOUS);
+        }
     }
 
     @Override
@@ -50,6 +60,9 @@ public class Feast implements Event{
         for(Bird bird : birds) {
             bird.takePartInFeast();
             if(bird.getClass().getName().matches("creatures.SmallBird")) ((SmallBird)bird).takePartInFeast(alice);
+        }
+        for(Bird bird: birds){
+            bird.introduce(Mood.SERIOUS);
         }
 
     }
