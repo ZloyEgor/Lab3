@@ -30,14 +30,6 @@ public abstract class Bird implements Creature{
     }
 
     /**
-     * @brief A method that represents the bird and its mood
-     * @param mood - bird mood
-     */
-    public void introduce(Mood mood){
-        teller.tell(updateMood(mood));
-    }
-
-    /**
      * @brief The method sets a new name for the bird, which is different from the unwantedName
      * @param unwantedName - name that should be changed
      */

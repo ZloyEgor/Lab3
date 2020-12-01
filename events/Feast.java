@@ -49,7 +49,7 @@ public class Feast implements Event{
             birds[3].setDifferentName(birds[4].getName());
         }
         for(Bird bird: birds){
-            bird.introduce(Mood.SERIOUS);
+            teller.tell(bird.updateMood(Mood.SERIOUS));
         }
     }
 
@@ -61,10 +61,6 @@ public class Feast implements Event{
             bird.takePartInFeast();
             if(bird.getClass().getName().matches("creatures.SmallBird")) ((SmallBird)bird).takePartInFeast(alice);
         }
-        for(Bird bird: birds){
-            bird.introduce(Mood.SERIOUS);
-        }
-
     }
 
     @Override

@@ -50,7 +50,7 @@ public class Awarding implements Event {
             birds[3].setDifferentName(birds[4].getName());
         }
         for(Bird bird: birds){
-            bird.introduce(Mood.SERIOUS);
+            teller.tell(bird.updateMood(Mood.SERIOUS));
         }
     }
 
